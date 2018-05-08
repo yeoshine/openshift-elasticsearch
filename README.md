@@ -1,3 +1,16 @@
+oc create -f scc-elasticsearch.yaml
+oc adm policy add-scc-to-user scc-elasticsearch system:serviceaccount:business:default
+oc policy add-role-to-user view system:serviceaccount:business:default
+oc create -f es-discovery-svc.yaml
+oc create -f es-svc.yaml
+oc create -f es-master.yaml
+oc create -f es-client.yaml
+oc create -f es-data-svc.yaml
+oc create -f es-data-stateful.yaml
+
+
+
+
 ![Openshift](img/openshift.png)
 
 # Stateful Elasticsearch Cluster on Openshift
